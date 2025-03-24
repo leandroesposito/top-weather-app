@@ -1,6 +1,60 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  min-height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background-color: #eeeeee;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 3rem;
+  align-items: center;
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: bold;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+header .icon-container {
+  width: 3rem;
+  height: 3rem;
+}
+
+.icon {
+  width: inherit;
+  height: inherit;
+}
+
+.partly-cloudy-day {
+  background-image: url("./icons/partly-cloudy-day.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.body {
+  margin: 3rem;
 }
