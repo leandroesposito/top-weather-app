@@ -7,10 +7,121 @@
   </head>
 
   <body>
-    <form id="wheather-form">
-      <label for="location">Location</label>
-      <input type="text" id="location" placeholder="Location" />
-      <button type="submit">Search</button>
-    </form>
+    <div class="root">
+      <header>
+          <div class="icon-container">
+            <div class="icon wheather-icon partly-cloudy-day"></div>
+          </div>
+          <h1>Wheather App</h1>
+      </header>
+      <div class="body">
+        <div class="form-container">
+          <form id="wheather-form">
+            <label for="location">Location</label>
+            <input type="text" id="location" placeholder="Location" />
+            <select name="units" id="units">
+              <option value="metric" selected>Metric (ºC, km)</option>
+              <option value="imperial">Imperial (ºF, miles)</option>
+            </select>
+            <button type="submit">Search</button>
+          </form>
+          <div>Or</div>
+          <button id="current-location-button">Use Current Location</button>
+        </div>
+        <div class="wheather-container">
+          <div class="location">
+            <div class="icon-container">
+              <div class="icon location-icon"></div>
+            </div>
+          </div>
+          <div class="today">
+            <div class="description">
+              Similar temperatures continuing with a chance of rain multiple
+              days.
+            </div>
+            <div class="current-conditions">
+              <div class="current-descriptions">
+                <div class="general-description">
+                  <div class="icon-container">
+                    <div class="icon partly-cloudy-day"></div>
+                  </div>
+                  <div class="temperature">23.9</div>
+                </div>
+                <div class="feels-like">250</div>
+                <div class="conditions">Partially cloudy</div>
+                <div class="last-update"></div>
+              </div>
+              <div class="current-conditions-table">
+                <table>
+                  <tr>
+                    <th scope="row">Humidity</th>
+                    <td>61.8</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Dew Point</th>
+                    <td>2.7</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pressure</th>
+                    <td>1014</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Visibility</th>
+                    <td>10</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="suncycle">
+                <div>Sun</div>
+                <div class="icon-container">
+                  <div class="icon sunrise"></div>
+                </div>
+                <div class="sun-time">06:32</div>
+                <div class="icon-container">
+                  <div class="icon sunset"></div>
+                </div>
+                <div class="sun-time">18:57</div>
+              </div>
+            </div>
+          </div>
+          <div class="forecast">
+            <div class="forecast-header">
+              <div class="forecast-title">Forecast</div>
+            </div>
+            <div class="forecast-container">
+              <table>
+                <tr>
+                  <td></td>
+                  <th scope="col">Date1</th>
+                  <th scope="col">Date2</th>
+                  <th scope="col">Date3</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Partly cloudy throughout the day.</td>
+                  <td>Partly cloudy throughout the day.</td>
+                  <td>Partly cloudy throughout the day.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Temp Max:</td>
+                  <td>11.5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Temp Min:</td>
+                  <td>5.3</td>
+                  <td>5.3</td>
+                </tr>
+                <tr>
+                  <th scope="row">Conditions:</td>
+                  <td>Partially cloudy</td>
+                  <td>Partially cloudy</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
