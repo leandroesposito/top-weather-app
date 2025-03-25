@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #3b82f6;
+  --primary-color-darker: #2563eb;
+  --font-color-medium: #4e4e4e;
+  --font-color-light: #acacac;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +36,7 @@ header {
   gap: 2rem;
   padding: 1rem 3rem;
   align-items: center;
-  background-color: #3b82f6;
+  background-color: var(--primary-color);
   color: #fff;
   font-weight: bold;
 }
@@ -47,14 +54,291 @@ header .icon-container {
 .icon {
   width: inherit;
   height: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .partly-cloudy-day {
   background-image: url("./icons/partly-cloudy-day.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 1rem;
+}
+
+.search-container,
+.search-container * {
+  font-size: 1.1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+.form-container,
+.form-container form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-container button,
+.form-container input,
+.form-container select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.form-container button:hover,
+.form-container input:hover,
+.form-container select:hover {
+  background-color: var(--primary-color-darker);
+}
+
+.form-container button,
+.form-container select {
+  cursor: pointer;
+}
+
+.form-container button {
+  box-shadow: 5px 5px black;
+}
+
+.form-container button:active {
+  box-shadow: none;
+  translate: 5px 5px;
 }
 
 .body {
   margin: 3rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 3rem;
+}
+
+.weather-container {
+  display: grid;
+  gap: 2rem;
+}
+
+.location {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.location .icon-container {
+  width: 1em;
+  height: 1em;
+}
+
+.location-icon {
+  background-image: url("./icons/location.svg");
+}
+
+.today {
+  display: grid;
+  gap: 1rem;
+}
+
+.today .description {
+  justify-self: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--font-color-medium);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--font-color-light);
+}
+
+.current-conditions {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.current-descriptions {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+}
+
+.general-description {
+  display: flex;
+  gap: 1rem;
+}
+
+.general-description .icon-container {
+  width: 7rem;
+  height: 7rem;
+}
+
+.partly-cloudy-day {
+  background-image: url("./icons/partly-cloudy-day.svg");
+}
+
+.general-description .temperature:first-child {
+  font-size: 4rem;
+  font-weight: bold;
+  color: rgb(221, 128, 21);
+}
+
+.metric .temperature::after {
+  content: "°C";
+}
+.imperial .temperature::after {
+  content: "°F";
+}
+
+.general-description .feels-like {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--font-color-light);
+}
+
+.current-descriptions .conditions {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--font-color-medium);
+}
+.current-descriptions .last-update {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--font-color-medium);
+}
+
+.current-conditions-table {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-left: 1px solid var(--font-color-light);
+  border-right: 1px solid var(--font-color-light);
+  text-align: left;
+}
+
+.current-conditions-table table {
+  width: 100%;
+  font-size: 1.1rem;
+  color: var(--font-color-medium);
+  border-collapse: collapse;
+}
+
+.current-conditions-table table * {
+  padding: 0.5rem;
+}
+
+.current-conditions-table table tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.suncycle {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  color: var(--font-color-medium);
+}
+
+.suncycle > div:first-child {
+  color: black;
+  border-bottom: 1px solid var(--font-color-light);
+  font-weight: 600;
+}
+
+.suncycle .icon-container {
+  width: 3rem;
+  height: 3rem;
+}
+
+.sunrise {
+  background-image: url("./icons/sunrise.svg");
+}
+
+.sunset {
+  background-image: url("./icons/sunset.svg");
+}
+
+.forecast {
+  display: grid;
+  gap: 2rem;
+  justify-items: center;
+}
+
+.forecast-title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.forecast-container {
+  overflow: auto;
+  max-width: 80%;
+}
+
+.forecast-container table {
+  border-collapse: collapse;
+}
+
+.forecast-container tr *:not(div) {
+  border: 1px solid var(--font-color-light);
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-wrap: wrap;
+}
+
+.forecast-container tr:nth-child(n + 3) * {
+  text-wrap: nowrap;
+}
+
+.forecast-container tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+.forecast-container th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.forecast-container th[scope="row"] {
+  position: sticky;
+  left: 0;
+}
+
+.forecast-container td div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.forecast-container .icon-container {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
 }
