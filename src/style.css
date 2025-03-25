@@ -3,6 +3,7 @@
   --primary-color-darker: #2563eb;
   --font-color-medium: #4e4e4e;
   --font-color-light: #acacac;
+  --bg-color-error: #f44336;
 }
 
 body {
@@ -133,6 +134,40 @@ header .icon-container {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   padding: 3rem;
+}
+
+.indications {
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--font-color-medium);
+}
+
+.information-icon {
+  background-image: url("./icons/information.svg");
+}
+
+.error .icon-container,
+.indications .icon-container {
+  position: relative;
+  top: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+}
+
+.error {
+  background-color: var(--bg-color-error);
+  padding: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 1rem;
+  line-height: 2rem;
+}
+
+.error-icon {
+  background-image: url("./icons/error.svg");
 }
 
 .weather-container {
