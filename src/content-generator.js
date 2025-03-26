@@ -254,3 +254,12 @@ export function createIndicationsContent() {
 
   return container;
 }
+
+export function createLoadingContent() {
+  const container = createElement("div", "loading");
+  const textNode = document.createTextNode("Loading");
+  container.appendChild(textNode);
+  const iconContainer = createIconContainer("clear-day");
+  container.appendChild(iconContainer);
+  return container;
+}
