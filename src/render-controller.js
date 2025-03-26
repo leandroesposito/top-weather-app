@@ -2,6 +2,7 @@ import {
   createWeatherContent,
   createErrorContent,
   createIndicationsContent,
+  createLoadingContent,
 } from "./content-generator";
 
 function cleanBodyAndAppendChild(element) {
@@ -22,5 +23,10 @@ export function renderError(error) {
 
 export function renderIndications() {
   const container = createIndicationsContent();
+  cleanBodyAndAppendChild(container);
+}
+
+export function renderLoading() {
+  const container = createLoadingContent();
   cleanBodyAndAppendChild(container);
 }
