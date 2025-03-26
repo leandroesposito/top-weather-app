@@ -7,7 +7,6 @@ import {
   renderError,
   renderLoading,
 } from "./render-controller";
-import sampleData from "./sample-data";
 
 (function main() {
   function validateForm() {
@@ -51,11 +50,6 @@ import sampleData from "./sample-data";
 
   form.addEventListener("submit", submitForm);
   locationInput.addEventListener("input", validateForm);
-  document
-    .querySelector("#current-location-button")
-    .addEventListener("click", () => {
-      renderData(sampleData, "metric");
-    });
 
   renderIndications();
 })();
