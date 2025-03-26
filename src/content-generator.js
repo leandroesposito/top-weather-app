@@ -228,3 +228,29 @@ export function createWeatherContent(data, unit) {
 
   return container;
 }
+
+export function createErrorContent(error) {
+  const container = createElement("div", "error");
+
+  const iconContainer = createIconContainer("error-icon");
+  container.appendChild(iconContainer);
+
+  const textContainer = document.createTextNode(error);
+  container.appendChild(textContainer);
+
+  return container;
+}
+
+export function createIndicationsContent() {
+  const container = createElement("div", "indications");
+
+  const iconContainer = createIconContainer("information-icon");
+  container.appendChild(iconContainer);
+
+  const textContainer = document.createTextNode(
+    "You can view the weather data from any city you would like by typing it in the search bar. You can also use the current location button to view the weather data from your current location. In case you use the current location button, please allow the browser to access your location.",
+  );
+  container.appendChild(textContainer);
+
+  return container;
+}
