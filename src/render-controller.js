@@ -11,6 +11,71 @@ function createIconContainer(iconName) {
   return iconContainer;
 }
 
+function createCurrentConditionRow(header, value, ...classList) {
+  const tr = createElement("tr");
+  const th = createElement("th");
+  th.setAttribute("scope", "row");
+  th.textContent = header;
+  tr.appendChild(th);
+  const td = createElement("td", ...classList);
+  td.textContent = value;
+  tr.appendChild(td);
+  return tr;
+}
+
+function createForecastHeaderRow(title) {
+  const row = createElement("tr");
+  const header = createElement("th");
+  header.setAttribute("scope", "row");
+  header.textContent = title;
+  row.appendChild(header);
+  return row;
+}
+
+function addForecastTableColumn(table, day) {
+  const weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const date = new Date(day.datetime);
+  const rows = table.querySelectorAll("tr");
+
+  const dateCell = createElement("th");
+  dateCell.textContent = `${weekday[date.getDay()]} ${date.getDate()}`;
+  rows[0].appendChild(dateCell);
+
+  const descriptionCell = rows[1].insertCell();
+  descriptionCell.textContent = day.description;
+
+  const tempMaxCell = rows[2].insertCell();
+  tempMaxCell.textContent = day.tempmax;
+  tempMaxCell.classList.add("temperature");
+
+  const tempMinCell = rows[3].insertCell();
+  tempMinCell.textContent = day.tempmin;
+  tempMinCell.classList.add("temperature");
+
+  const conditionsCell = rows[4].insertCell();
+  const conditionsDiv = createElement("div");
+  const conditionsIcon = createIconContainer(day.icon);
+  conditionsDiv.appendChild(conditionsIcon);
+  const conditionsText = document.createTextNode(day.conditions);
+  conditionsDiv.appendChild(conditionsText);
+  conditionsCell.appendChild(conditionsDiv);
+
+  const precipitationTypeCell = rows[5].insertCell();
+  precipitationTypeCell.textContent = day.preciptype;
+
+  const precipitationProbabilityCell = rows[6].insertCell();
+  precipitationProbabilityCell.textContent = day.precipprob;
+  precipitationProbabilityCell.classList.add("percentage");
+}
+
 export function renderData(data, unit) {
   const body = document.querySelector(".body");
   body.innerHTML = "";
@@ -59,11 +124,109 @@ export function renderData(data, unit) {
 
   currentConditionsDiv.appendChild(currentDescriptionsDiv);
 
-  //table
-  //suncycle
+  const currentConditionsTableDiv = createElement(
+    "div",
+    "current-conditions-table",
+  );
+  const currentConditionsTable = createElement("table");
+  const currentConditionsTableBody = createElement("tbody");
+
+  const tr1 = createCurrentConditionRow(
+    "Humidity",
+    data.currentConditions.humidity,
+    "percentage",
+  );
+  currentConditionsTableBody.appendChild(tr1);
+
+  const tr2 = createCurrentConditionRow(
+    "Dew Point",
+    data.currentConditions.dew,
+    "temperature",
+  );
+  currentConditionsTableBody.appendChild(tr2);
+
+  const tr3 = createCurrentConditionRow(
+    "Pressure",
+    data.currentConditions.pressure,
+  );
+  currentConditionsTableBody.appendChild(tr3);
+
+  const tr4 = createCurrentConditionRow(
+    "Visibility",
+    data.currentConditions.visibility,
+    "distance",
+  );
+  currentConditionsTableBody.appendChild(tr4);
+
+  currentConditionsTable.appendChild(currentConditionsTableBody);
+  currentConditionsTableDiv.appendChild(currentConditionsTable);
+  currentConditionsDiv.appendChild(currentConditionsTableDiv);
+
+  const suncycleDiv = createElement("div", "suncycle");
+  const sunDiv = createElement("div", "sun");
+  sunDiv.textContent = "Sun";
+  suncycleDiv.appendChild(sunDiv);
+
+  const sunriseIconContainer = createIconContainer("sunrise");
+  suncycleDiv.appendChild(sunriseIconContainer);
+
+  const sunriseTimeDiv = createElement("div", "sun-time");
+  sunriseTimeDiv.textContent = data.currentConditions.sunrise.substring(0, 5);
+  suncycleDiv.appendChild(sunriseTimeDiv);
+
+  const sunsetIconContainer = createIconContainer("sunset");
+  suncycleDiv.appendChild(sunsetIconContainer);
+
+  const sunsetTimeDiv = createElement("div", "sun-time");
+  sunsetTimeDiv.textContent = data.currentConditions.sunset.substring(0, 5);
+  suncycleDiv.appendChild(sunsetTimeDiv);
+
+  currentConditionsDiv.appendChild(suncycleDiv);
 
   todayDiv.appendChild(currentConditionsDiv);
   container.appendChild(todayDiv);
 
+  const forecastDiv = createElement("div", "forecast");
+  const forecastHeaderDiv = createElement("div", "forecast-header");
+  const forecastTitleDiv = createElement("div", "forecast-title");
+  forecastTitleDiv.textContent = "Forecast";
+  forecastHeaderDiv.appendChild(forecastTitleDiv);
+  forecastDiv.appendChild(forecastHeaderDiv);
+
+  const forecastContainerDiv = createElement("div", "forecast-container");
+  const forecastTable = createElement("table");
+  const forecastTableBody = createElement("tbody");
+
+  const emptyRowFirst = createElement("tr");
+  const emptyCellFirst = createElement("td", "empty-cell");
+  emptyCellFirst.setAttribute("rowspan", "2");
+  emptyRowFirst.appendChild(emptyCellFirst);
+  forecastTableBody.appendChild(emptyRowFirst);
+
+  const empyRowSecond = createElement("tr");
+  forecastTableBody.appendChild(empyRowSecond);
+
+  const forecastTableHeaders = [
+    "Temp Max",
+    "Temp Min",
+    "Conditions",
+    "Precipitation Type",
+    "Precipitation Prob.",
+  ];
+
+  forecastTableHeaders.forEach((header) => {
+    const headerRow = createForecastHeaderRow(header);
+    forecastTableBody.appendChild(headerRow);
+  });
+
+  data.days.forEach((day) => {
+    addForecastTableColumn(forecastTableBody, day);
+  });
+
+  forecastTable.appendChild(forecastTableBody);
+  forecastContainerDiv.appendChild(forecastTable);
+  forecastDiv.appendChild(forecastContainerDiv);
+
+  container.appendChild(forecastDiv);
   body.appendChild(container);
 }
