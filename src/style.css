@@ -132,15 +132,45 @@ header .icon-container {
   padding: 3rem;
 }
 
+.loading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--font-color-medium);
+  display: grid;
+  justify-items: center;
+  gap: 3rem;
+}
+
+.loading .icon-container {
+  width: 10rem;
+  height: 10rem;
+
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(350deg);
+  }
+}
+
 .indications {
   justify-content: center;
   font-size: 1.3rem;
   font-weight: bold;
   color: var(--font-color-medium);
+  line-height: 2rem;
 }
 
 .error .icon-container,
 .indications .icon-container {
+  margin-right: 0.5rem;
   position: relative;
   top: 0.5rem;
   width: 2rem;
