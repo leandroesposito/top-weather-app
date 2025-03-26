@@ -1,5 +1,7 @@
 import "./style.css";
 import getWheatherInformation from "./data-fetcher";
+import { renderData } from "./render-controller";
+import sampleData from "./sample-data";
 
 (function main() {
   function validateForm() {
@@ -49,6 +51,11 @@ import getWheatherInformation from "./data-fetcher";
 
   form.addEventListener("submit", submitForm);
   locationInput.addEventListener("input", validateForm);
+  document
+    .querySelector("#current-location-button")
+    .addEventListener("click", () => {
+      renderData(sampleData, "metric");
+    });
 })();
 
 (function () {
