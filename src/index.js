@@ -5,6 +5,7 @@ import {
   renderData,
   renderIndications,
   renderError,
+  renderLoading,
 } from "./render-controller";
 import sampleData from "./sample-data";
 
@@ -35,6 +36,7 @@ import sampleData from "./sample-data";
   }
 
   function showLocationWeather(location, unit = "metric") {
+    renderLoading();
     getWheatherInformation(location, unit).then((data) => {
       if ("error" in data) {
         renderError(data.error);
