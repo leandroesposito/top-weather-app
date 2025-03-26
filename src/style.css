@@ -241,10 +241,21 @@ header .icon-container {
 }
 
 .metric .temperature::after {
-  content: "°C";
+  content: "ºC";
 }
+.metric .distance::after {
+  content: " km";
+}
+
+.percentage::after {
+  content: "%";
+}
+
 .imperial .temperature::after {
-  content: "°F";
+  content: "ºF";
+}
+.imperial .distance::after {
+  content: " mi";
 }
 
 .general-description .feels-like {
