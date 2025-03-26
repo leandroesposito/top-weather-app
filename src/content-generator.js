@@ -76,10 +76,7 @@ function addForecastTableColumn(table, day) {
   precipitationProbabilityCell.classList.add("percentage");
 }
 
-export function renderData(data, unit) {
-  const body = document.querySelector(".body");
-  body.innerHTML = "";
-
+export function createWeatherContent(data, unit) {
   const container = createElement("div", "weather-container", unit);
   container.classList.add(unit);
 
@@ -228,5 +225,6 @@ export function renderData(data, unit) {
   forecastDiv.appendChild(forecastContainerDiv);
 
   container.appendChild(forecastDiv);
-  body.appendChild(container);
+
+  return container;
 }
