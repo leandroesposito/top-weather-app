@@ -348,6 +348,7 @@ header .icon-container {
 
 .forecast-container table {
   border-collapse: collapse;
+  text-align: center;
 }
 
 .forecast-container tr *:not(div) {
