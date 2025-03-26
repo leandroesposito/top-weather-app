@@ -20,7 +20,7 @@ import getWheatherInformation from "./data-fetcher";
     console.error(error);
   }
 
-  function showWeather(data) {
+  function showWeatherData(data) {
     console.log(data);
   }
 
