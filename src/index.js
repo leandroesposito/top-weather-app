@@ -30,14 +30,18 @@ import getWheatherInformation from "./data-fetcher";
     console.log("submit");
     if (validateForm()) {
       const locationInput = document.getElementById("location");
-      getWheatherInformation(locationInput.value).then((data) => {
-        if ("error" in data) {
-          showError(data.error);
-        } else {
-          showWeather(data);
-        }
-      });
+      showLocationWeather(locationInput.value);
     }
+  }
+
+  function showLocationWeather(location) {
+    getWheatherInformation(location).then((data) => {
+      if ("error" in data) {
+        showError(data.error);
+      } else {
+        showWeatherData(data);
+      }
+    });
   }
 
   const form = document.querySelector("form");
