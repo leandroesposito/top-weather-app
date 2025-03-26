@@ -4,7 +4,7 @@ function createElement(tag, ...classList) {
   return element;
 }
 
-function createIconContainer(iconName) {
+export function createIconContainer(iconName) {
   const iconContainer = createElement("div", "icon-container");
   const icon = createElement("div", "icon", iconName);
   iconContainer.appendChild(icon);
