@@ -29,7 +29,7 @@ function cleanData(data) {
     tzoffset: data.tzoffset,
     description: data.description,
     currentConditions: {
-      dateTime: data.currentConditions.datetime,
+      datetime: data.currentConditions.datetime,
       temp: data.currentConditions.temp,
       feelslike: data.currentConditions.feelslike,
       humidity: data.currentConditions.humidity,
