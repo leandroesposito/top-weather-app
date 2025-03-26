@@ -1,4 +1,5 @@
 import "./style.css";
+import "./icons.css";
 import getWheatherInformation from "./data-fetcher";
 import { renderData } from "./render-controller";
 import sampleData from "./sample-data";
