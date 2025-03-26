@@ -1,7 +1,11 @@
 import "./style.css";
 import "./icons.css";
 import getWheatherInformation from "./data-fetcher";
-import { renderData } from "./render-controller";
+import {
+  renderData,
+  renderIndications,
+  renderError,
+} from "./render-controller";
 import sampleData from "./sample-data";
 
 (function main() {
@@ -19,30 +23,23 @@ import sampleData from "./sample-data";
     return true;
   }
 
-  function showError(error) {
-    console.error(error);
-  }
-
-  function showWeatherData(data) {
-    console.log(data);
-  }
-
   function submitForm(event) {
     event.preventDefault();
 
     console.log("submit");
     if (validateForm()) {
       const locationInput = document.getElementById("location");
-      showLocationWeather(locationInput.value);
+      const unitInput = document.getElementById("units");
+      showLocationWeather(locationInput.value, unitInput.value);
     }
   }
 
-  function showLocationWeather(location) {
+  function showLocationWeather(location, unit = "metric") {
     getWheatherInformation(location).then((data) => {
       if ("error" in data) {
-        showError(data.error);
+        renderError(data.error);
       } else {
-        showWeatherData(data);
+        renderData(data, unit);
       }
     });
   }
@@ -57,6 +54,8 @@ import sampleData from "./sample-data";
     .addEventListener("click", () => {
       renderData(sampleData, "metric");
     });
+
+  renderIndications();
 })();
 
 (function () {
