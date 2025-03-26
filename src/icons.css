@@ -1,0 +1,107 @@
+.information-icon {
+  background-image: url("./icons/information.svg");
+}
+
+.error-icon {
+  background-image: url("./icons/error.svg");
+}
+
+.location-icon {
+  background-image: url("./icons/location.svg");
+}
+
+.clear-day {
+  background-image: url("./icons/clear-day.svg");
+}
+
+.clear-night {
+  background-image: url("./icons/clear-night.svg");
+}
+
+.cloudy {
+  background-image: url("./icons/cloudy.svg");
+}
+
+.fog {
+  background-image: url("./icons/fog.svg");
+}
+
+.hail {
+  background-image: url("./icons/hail.svg");
+}
+
+.partly-cloudy-day {
+  background-image: url("./icons/partly-cloudy-day.svg");
+}
+
+.partly-cloudy-night {
+  background-image: url("./icons/partly-cloudy-night.svg");
+}
+
+.rain-snow-showers-day {
+  background-image: url("./icons/rain-snow-showers-day.svg");
+}
+
+.rain-snow-showers-night {
+  background-image: url("./icons/rain-snow-showers-night.svg");
+}
+
+.rain-snow {
+  background-image: url("./icons/rain-snow.svg");
+}
+
+.rain {
+  background-image: url("./icons/rain.svg");
+}
+
+.showers-day {
+  background-image: url("./icons/showers-day.svg");
+}
+
+.showers-night {
+  background-image: url("./icons/showers-night.svg");
+}
+
+.sleet {
+  background-image: url("./icons/sleet.svg");
+}
+
+.snow-showers-day {
+  background-image: url("./icons/snow-showers-day.svg");
+}
+
+.snow-showers-night {
+  background-image: url("./icons/snow-showers-night.svg");
+}
+
+.snow {
+  background-image: url("./icons/snow.svg");
+}
+
+.sunrise {
+  background-image: url("./icons/sunrise.svg");
+}
+
+.sunset {
+  background-image: url("./icons/sunset.svg");
+}
+
+.thunder-rain {
+  background-image: url("./icons/thunder-rain.svg");
+}
+
+.thunder-showers-day {
+  background-image: url("./icons/thunder-showers-day.svg");
+}
+
+.thunder-showers-night {
+  background-image: url("./icons/thunder-showers-night.svg");
+}
+
+.thunder {
+  background-image: url("./icons/thunder.svg");
+}
+
+.wind {
+  background-image: url("./icons/wind.svg");
+}
