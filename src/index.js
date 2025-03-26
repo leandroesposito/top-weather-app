@@ -23,6 +23,25 @@ import {
     return true;
   }
 
+  function useCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(
+      onLocationSuccess,
+      onLocationError,
+    );
+  }
+
+  function onLocationSuccess(location) {
+    const unitInput = document.getElementById("units");
+    showLocationWeather(
+      `${location.coords.latitude},${location.coords.longitude}`,
+      unitInput.value,
+    );
+  }
+
+  function onLocationError(error) {
+    renderError(error.message);
+  }
+
   function submitForm(event) {
     event.preventDefault();
 
@@ -47,9 +66,13 @@ import {
 
   const form = document.querySelector("form");
   const locationInput = document.querySelector("#location");
+  const currentLocationButton = document.querySelector(
+    "#current-location-button",
+  );
 
   form.addEventListener("submit", submitForm);
   locationInput.addEventListener("input", validateForm);
+  currentLocationButton.addEventListener("click", useCurrentLocation);
 
   renderIndications();
 })();
