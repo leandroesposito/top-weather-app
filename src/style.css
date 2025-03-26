@@ -60,10 +60,6 @@ header .icon-container {
   background-size: contain;
 }
 
-.partly-cloudy-day {
-  background-image: url("./icons/partly-cloudy-day.svg");
-}
-
 .search-container {
   display: flex;
   align-items: center;
@@ -143,10 +139,6 @@ header .icon-container {
   color: var(--font-color-medium);
 }
 
-.information-icon {
-  background-image: url("./icons/information.svg");
-}
-
 .error .icon-container,
 .indications .icon-container {
   position: relative;
@@ -164,10 +156,6 @@ header .icon-container {
   color: white;
   border-radius: 1rem;
   line-height: 2rem;
-}
-
-.error-icon {
-  background-image: url("./icons/error.svg");
 }
 
 .weather-container {
@@ -188,10 +176,6 @@ header .icon-container {
 .location .icon-container {
   width: 1em;
   height: 1em;
-}
-
-.location-icon {
-  background-image: url("./icons/location.svg");
 }
 
 .today {
@@ -228,10 +212,6 @@ header .icon-container {
 .general-description .icon-container {
   width: 7rem;
   height: 7rem;
-}
-
-.partly-cloudy-day {
-  background-image: url("./icons/partly-cloudy-day.svg");
 }
 
 .general-description .temperature:first-child {
@@ -315,14 +295,6 @@ header .icon-container {
 .suncycle .icon-container {
   width: 3rem;
   height: 3rem;
-}
-
-.sunrise {
-  background-image: url("./icons/sunrise.svg");
-}
-
-.sunset {
-  background-image: url("./icons/sunset.svg");
 }
 
 .forecast {
