@@ -231,10 +231,10 @@ header .icon-container {
   content: "%";
 }
 
-.imperial .temperature::after {
+.us .temperature::after {
   content: "ºF";
 }
-.imperial .distance::after {
+.us .distance::after {
   content: " mi";
 }
 
