@@ -15,6 +15,11 @@ This project was specifically designed to demonstrate and practice:
 
 [View Live Demo](https://leandroesposito.github.io/top-weather-app/)
 
+## Screenshots
+
+![Home](https://github.com/leandroesposito/top-weather-app/blob/main/screenshots/1_home.png)
+![Results](https://github.com/leandroesposito/top-weather-app/blob/main/screenshots/2_results.png)
+
 ## Project Architecture Overview
 
 ### 1. Linting (ESLint)
